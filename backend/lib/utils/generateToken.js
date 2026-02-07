@@ -14,10 +14,10 @@ export const generateTokenAndSetCookie = (userId, res) => {
 
     // Set the cookie with the token
     res.cookie("jwt", token, {
-      maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days in milliseconds
-      httpOnly: true, // Secure against XSS attacks
-      sameSite: "strict", // Prevent CSRF attacks
-      secure: process.env.NODE_ENV !== "development", // Secure flag for non-development
+      maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
+    httpOnly: true, // prevent XSS
+    sameSite: "none", // ALLOW CROSS-SITE COOKIES
+    secure: true,// Secure flag for non-development
     });
     console.log("JWT Cookie set successfully");
   } catch (error) {
